@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+   <title> [Haskell-cafe] Haskell, Microsoft, and interview questions
+   </title>
+   <link rel="Index" href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/index.html">
+   <link rel="made" href="mailto:haskell-cafe%40haskell.org?Subject=%5BHaskell-cafe%5D%20Haskell%2C%20Microsoft%2C%20and%20interview%20questions&amp;In-Reply-To=">
+   <meta name="robots" content="index,nofollow">
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <link rel="Previous" href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/044716.html">
+   <link rel="Next" href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/044728.html">
+ </head>
+ <body bgcolor="#ffffff">
+   <h1>[Haskell-cafe] Haskell, Microsoft, and interview questions</h1>
+    <b>Andrew Wagner</b> 
+    <a href="mailto:haskell-cafe%40haskell.org?Subject=%5BHaskell-cafe%5D%20Haskell%2C%20Microsoft%2C%20and%20interview%20questions&amp;In-Reply-To=" title="[Haskell-cafe] Haskell, Microsoft, and interview questions">wagner.andrew at gmail.com
+       </a><br>
+    <i>Wed Jun 25 16:14:21 EDT 2008</i>
+    <p></p><ul>
+        <li>Previous message: <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/044716.html">[Haskell-cafe] Simple question about processing XML with HaXml
+</a></li>
+        <li>Next message: <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/044728.html">[Haskell-cafe] Haskell, Microsoft, and interview questions
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/date.html#44726">[ date ]</a>
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/thread.html#44726">[ thread ]</a>
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/subject.html#44726">[ subject ]</a>
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/author.html#44726">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>This post borders on being off-topic, but it seems like people on this
+list would be interested.
+
+First, some of you know that I had the distinct privilege of flying
+out to Microsoft this week to interview for a Software Development
+Engineer position on their Live Search team. So I want to first tell
+you about their reaction to my Haskell experience, and then give you
+some interesting coding problems that they asked me to solve, which
+could be good practice to tackle in Haskell.
+
+So the first task I was given to do, long before my in-person
+interview, was to complete a technical assessment. This consisted of
+two fairly simple algorithms to write. I chose to do so in Haskell. On
+the basis of this assessment, they decided I was worth a phone
+interview. When I got on that interview, one of the first things the
+interviewer said was "So, one thing that jumped out immediately was
+that you did the assessment in Haskell. Tell me a little bit about
+that." It led to a good discussion about why I like Haskell and
+functional programming. When I actually flew out there, several people
+made comments about me being "that guy who writes Haskell". The
+recruiter even said something along the lines of "anyone who knows
+haskell is certainly worth our time to talk to." Moral of the story:
+Haskell rocks, and even Microsoft knows it!
+
+That said, here are some interesting problems to work through in
+Haskell, if you'd like:
+
+1.) A "rotated array" is an array of integers in ascending order,
+after which for every element i, it has been moved to element (i + n)
+mod sizeOfList. Write a function that takes a rotated array and, in
+less-than-linear time, returns n (the amount of rotation).
+
+2.) You are given a list of Ball objects. Each Ball is either Red or
+Blue. Write a function that partitions these balls so that all of the
+balls of each color are contiguous. Return the index of the first ball
+of the second color (your result can be Red balls, then Blue balls, or
+the other way around). In haskell, you'll probably want to return a
+([Ball],Int).
+
+3.) Live Search is a search engine. Suppose it was to be tied into an
+online store. Now you're given two lists. One is a [(SessionId,
+NormalizedQuery)]. That is, when a particular user performs a query,
+it is turned into some consistent format, based on their apparent
+intent, and stored in this logfile. The second list is a [(SessionId,
+ProductId)]. This indicates the product bought by a particular user.
+Now, you want to take these two (potentially very long) lists, and
+return some structure that will make it easy to take a query and
+return a list of the most popular resulting purchases. That is, of
+people who have run this query in the past, what are the most common
+products they've wound up buying? The interviewer said that this is an
+instance of a well-known problem, but I didn't catch the name of it.
+
+4.) You're given an array which contains the numbers from 1 to n, in
+random order, except there is one missing. Write a function to return
+the missing number.
+
+5.) Write a function to reconstruct a binary tree from its preorder
+traversal and inorder traversal. Take into account that the traversals
+could be invalid.
+
+6.) You have a [(WeatherStationId, Latitude, Longitude)]. Similar to
+#3, write a function which will, off-line, turn this into a data
+structure from which you can easily determine the nearest Weather
+Station, given an arbitrary Latitude and Longitude.
+
+7.) Write a function for scoring a mastermind guess. That is, in a
+game of mastermind
+(<a href="http://en.wikipedia.org/wiki/Mastermind_%28board_game">http://en.wikipedia.org/wiki/Mastermind_(board_game</a>)), given a guess,
+and the actual answer, determine the number correct, the number wrong,
+and the number out of place.
+
+8.) Implement a trie (<a href="http://en.wikipedia.org/wiki/Trie">http://en.wikipedia.org/wiki/Trie</a>) data
+structure. Write a function add, which takes a word, and a trie, and
+adds the word to the trie. Write another function lookup, which takes
+a prefix and a trie, and returns all the words in the trie that start
+with that prefix.
+
+9.) Write an algorithm to shuffle a deck of cards. Now write a
+function to perform some kind of evaluation of "how shuffled" a deck
+of cards is.
+
+Hope you enjoy!
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/044716.html">[Haskell-cafe] Simple question about processing XML with HaXml
+</a></li>
+	<li>Next message: <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/044728.html">[Haskell-cafe] Haskell, Microsoft, and interview questions
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/date.html#44726">[ date ]</a>
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/thread.html#44726">[ thread ]</a>
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/subject.html#44726">[ subject ]</a>
+              <a href="https://www.haskell.org/pipermail/haskell-cafe/2008-June/author.html#44726">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="http://www.haskell.org/mailman/listinfo/haskell-cafe">More information about the Haskell-Cafe
+mailing list</a><br>
+
+</body></html>
